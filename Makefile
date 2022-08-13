@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/08 22:47:58 by bankai            #+#    #+#              #
-#    Updated: 2022/08/11 12:59:04 by wjuneo-f         ###   ########.fr        #
+#    Updated: 2022/08/13 18:50:04 by wwallas-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ bonus:
 						make all
 
 clean:
+						$(RM) $(OBJS_DIR)
 						$(MAKE) -C ./libft clean
 
 fclean:				clean

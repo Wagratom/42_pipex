@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:08:13 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/11 13:23:42 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/13 19:27:59 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,13 @@ void	exec_child(t_data *data)
 	}
 	close(fd[1]);
 	waitpid(pid, &status, 0);
-	if (status)
-		exit(EXIT_FAILURE);
-	data->file[0] = fd[0];
 	my_clear(data->cmd, data->path);
+	if (status)
+	{
+		my_clear(data->paths, NULL);
+		exit(EXIT_FAILURE);
+	}
+	data->file[0] = fd[0];
 }
 
 void	exec_father(t_data *data)
@@ -51,12 +54,12 @@ void	exec_father(t_data *data)
 		execve(data->path, data->cmd, NULL);
 	}
 	waitpid(pid, &status, 0);
-	if (status)
-		exit(EXIT_FAILURE);
 	close(data->file[0]);
 	close(data->file[1]);
 	my_clear(data->cmd, data->path);
 	my_clear(data->paths, NULL);
+	if (status)
+		exit(EXIT_FAILURE);
 }
 
 void	start_pipex(t_data *data)

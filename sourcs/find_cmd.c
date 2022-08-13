@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_cmd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:34:24 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/10 15:38:33 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/13 19:17:55 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,10 @@ int	find_cmd(t_data *data)
 		tmp1 = ft_strjoin(tmp, data->cmd[0]);
 		free(tmp);
 		if (!access(tmp1, F_OK))
-			return (data->path = tmp1, 1);
+		{
+			data->path = tmp1;
+			return (1);
+		}
 		free(tmp1);
 	}
 	write(2, data->cmd[0], ft_strlen(data->cmd[0]));
