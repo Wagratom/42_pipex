@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 21:49:06 by bankai            #+#    #+#             */
-/*   Updated: 2022/08/13 19:33:43 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/08/13 23:46:42 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	open_files(t_data *data)
 	verific_erros(data->file[0], 0, NULL);
 	if (data->file[1] == -1)
 	data->file[1] = open(data->argv[data->argc - 1],
-			O_WRONLY | O_CREAT | O_TRUNC, 0777);
+				O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	verific_erros(data->file[1], 0, NULL);
 }
 
