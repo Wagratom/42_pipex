@@ -6,7 +6,7 @@
 #    By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/08 22:47:58 by bankai            #+#    #+#              #
-#    Updated: 2022/08/13 18:50:04 by wwallas-         ###   ########.fr        #
+#    Updated: 2022/08/14 04:19:12 by wwallas-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,7 @@ $(LIBFT):
 $(OBJS_DIR):
 						mkdir -p objects
 
-bonus:
-						make all
+bonus:					$(NAME)
 
 clean:
 						$(RM) $(OBJS_DIR)
